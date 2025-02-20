@@ -1,0 +1,35 @@
+@import "../scss/herro";
+@import "../scss/main-container";
+
+@font-face {
+    font-family: "pacaembu-medium";
+    src: url("../../fonts/pacaembu/Pacaembu-Medium-Trial.otf");
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+}
+
+input {
+    outline: none;
+    cursor: pointer;
+}

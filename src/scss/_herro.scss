@@ -1,0 +1,292 @@
+$headerWrapper: clamp(320px, 90%, 1760px);
+$containerWrapper: clamp(320px, 100%, 1920px);
+
+
+$mainFontColor: #FFF;
+$mainFontSize: 88px;
+
+$myFont: pacaembu-medium;
+
+@mixin flexbox($vertical, $horisontal) {
+    display: flex;
+    align-items: $vertical;
+    justify-content: $horisontal;
+}
+
+.hero {
+    @include flexbox(stretch, center);
+    position: relative;
+
+    font-family: $myFont;
+
+    &-wrapper {
+        width: $containerWrapper;
+        height: 100%;
+
+        header {
+            width: $headerWrapper;
+            position: absolute;
+            transform: translateX(-50%);
+            left: 50%;
+            top: 65px;
+            z-index: 100;
+            @include flexbox(center, space-between);
+
+            .company-name img {
+                @media only screen and (max-width: 768px) {}
+            }
+
+            nav ul {
+                @include flexbox(center, stretch);
+                gap: 40px;
+
+                a {
+                    color: $mainFontColor;
+                    transition: .3s ease;
+
+                    &:hover {
+                        color: #FBD784;
+                    }
+                }
+
+                @media only screen and (max-width: 768px) {
+                    display: none;
+                }
+            }
+
+            .account-holder {
+                @include flexbox(center, space-between);
+                color: #FFF;
+                gap: 10px;
+
+                @media only screen and (max-width: 768px) {
+                    font-size: 14px;
+                }
+
+                img {
+                    @media only screen and (max-width: 768px) {
+                        width: 10px;
+                        height: 10px;
+                    }
+                }
+            }
+        }
+
+        &-content {
+            @include flexbox(center, space-between);
+            width: $headerWrapper;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 20;
+            top: 287px;
+
+            @media only screen and (max-width: 768px) {
+                top: 140px;
+            }
+
+            &-social {
+                @include flexbox(center, start);
+                gap: 24px;
+                rotate: 90deg;
+                font-weight: 1000;
+                color: $mainFontColor;
+                font-size: 1rem;
+                gap: 16px;
+                text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+                @media only screen and (max-width: 1080px) {
+                    font-size: 20px;
+                }
+
+                @media only screen and (max-width: 768px) {
+                    font-size: 10px;
+
+                    img {
+                        width: 20px;
+                        height: 20px;
+                    }
+                }
+            }
+
+            &-txt {
+                @include flexbox(flex-start, start);
+                flex-direction: column;
+                gap: 32px;
+                font-family: $myFont;
+
+
+                width: clamp(300px, 100%, 950px);
+
+                &-title {
+                    @include flexbox(center, start);
+                    gap: 32px;
+
+                    span {
+                        height: 2px;
+                        width: 74px;
+                        background-color: #FBD784;
+
+                        svg {
+                            width: 20px;
+                            height: 20px;
+                        }
+                    }
+
+                    color: #FBD784;
+
+                    @media only screen and (max-width: 1080px) {
+                        font-size: 20px;
+                    }
+
+                    @media only screen and (max-width: 768px) {
+                        font-size: 10px;
+                    }
+                }
+
+                h1 {
+                    font-size: $mainFontSize;
+                    color: $mainFontColor;
+                    font-weight: 1000;
+                    -webkit-text-stroke: 1px rgb(0, 0, 0);
+                    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+                    @media only screen and (max-width: 1080px) {
+                        font-size: 40px;
+                    }
+
+                    @media only screen and (max-width: 768px) {
+                        font-size: 16px;
+                    }
+                }
+
+                span {
+                    @include flexbox(center, start);
+                    font-weight: 1000;
+                    color: $mainFontColor;
+                    font-size: 1rem;
+                    gap: 16px;
+                    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+                }
+            }
+
+            &-navigator {
+                @include flexbox(stretch, start);
+                gap: 32px;
+
+                &-vertical {
+                    color: $mainFontColor;
+
+                    ul {
+                        @include flexbox(center, space-around);
+                        flex-direction: column;
+                        gap: 40px;
+                        font-weight: 1000;
+                        font-size: 1rem;
+                        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+                        @media only screen and (max-width: 1080px) {
+                            font-size: 20px;
+                        }
+
+                        @media only screen and (max-width: 768px) {
+                            font-size: 10px;
+                            gap: 10px;
+                        }
+
+                        li {
+                            cursor: pointer;
+
+                            &:hover {
+                                color: #FBD784
+                            }
+                        }
+                    }
+                }
+
+                &-slider {
+                    @include flexbox(stretch, center);
+                    flex-direction: column;
+                    height: 100%;
+                    width: 3px;
+                    background: #ffffff4d;
+                    border-radius: 10px;
+
+                    span {
+                        border-radius: 10px;
+                        background: #FFF;
+                        height: 25%;
+                    }
+                }
+            }
+        }
+
+        .img-container {
+            position: relative;
+            z-index: 1;
+
+            .hg-img {
+                position: absolute;
+                width: 100vw;
+                z-index: 2;
+                overflow: hidden;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .mg-img {
+                position: absolute;
+                top: 110px;
+                width: 100vw;
+                z-index: 3;
+                left: 50%;
+                transform: translateX(-50%);
+
+                @media only screen and (max-width: 1920px) {
+                    top: 38px;
+                }
+
+                @media only screen and (max-width: 1080px) {
+                    top: -14px;
+                }
+
+                @media only screen and (max-width: 768px) {
+                    top: 10px;
+                }
+
+
+            }
+
+            .vg-img {
+                position: absolute;
+                width: 100vw;
+                top: 812px;
+                z-index: 4;
+                left: 50%;
+                transform: translateX(-50%);
+
+                @media only screen and (max-width: 1920px) {
+                    top: 420px;
+
+                }
+
+                @media only screen and (max-width: 1080px) {
+                    top: 270px;
+                }
+
+                @media only screen and (max-width: 728px) {
+                    top: 150px;
+                }
+            }
+
+            .bg-img {
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 100vw;
+                height: 100vh;
+                z-index: 5;
+            }
+        }
+    }
+}

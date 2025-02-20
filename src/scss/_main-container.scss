@@ -1,0 +1,157 @@
+$mainContainerWrapper: clamp(1000px, 90%, 1462px);
+
+
+$mainFontColor: #FFF;
+$mainFontSize: 65px;
+$mainConrainerTxtSize: 18px;
+
+$myFont: pacaembu-medium;
+
+@mixin flexbox($vertical, $horisontal) {
+    display: flex;
+    align-items: $vertical;
+    justify-content: $horisontal;
+}
+
+@mixin gridBox($column, $row) {
+    display: grid;
+    grid-template-columns: $column;
+    grid-template-rows: $row;
+}
+
+.linear-layer {
+    width: 100vw;
+    height: 50vh;
+    background: linear-gradient(#0b1d2600, #0b1d2690, #0b1d260e);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 700px;
+    z-index: 1001;
+}
+
+main {
+    font-family: $myFont;
+    width: 100vw;
+    position: absolute;
+    top: 900px;
+    background-color: #0B1D26;
+    z-index: 1000;
+
+
+    @include flexbox(stretch, center);
+
+    @media only screen and (max-width: 1080px) {
+        top: 600px;
+    }
+
+    @media only screen and (max-width: 768px) {
+        top: 320px;
+    }
+
+    .main-container {
+        @include gridBox(minmax(800px, 1462px), repeat(3, 1fr));
+        gap: 200px;
+        padding: 150px 40px;
+
+        &-item {
+            display: grid;
+            grid-auto-rows: 1fr;
+            grid-template-columns: minmax(500px, 532px) minmax(500px, 566px);
+            position: relative;
+            gap: 114px;
+            align-items: center;
+            justify-content: center;
+
+            @media only screen and (max-width: 1080px) {
+                grid-template-columns: minmax(500px, 566px);
+            }
+
+            h4 {
+                position: absolute;
+                top: 38px;
+                color: #ffffff34;
+                left: 0;
+                font-size: 240px;
+                z-index: -1;
+            }
+
+            .second {
+                position: absolute;
+                right: 0;
+                top: 38px;
+                z-index: -1;
+                color: #ffffff34;
+                font-size: 240px;
+            }
+
+            &-right {
+                @include flexbox(flex-start, start);
+                flex-direction: column;
+                color: #FFF;
+                gap: 27px;
+
+
+                img {
+                    width: clamp(300px, 100%, 720px);
+                    border-radius: 20px;
+                    object-fit: contain;
+                }
+
+                &-title {
+                    font-size: 1rem;
+                    color: #FBD784;
+                }
+
+                h6 {
+                    font-size: 64px;
+                }
+
+                p {
+                    font-size: 16px;
+                    border: 2ps solid red
+                }
+
+                span {
+                    @include flexbox(center, start);
+                    color: #FBD784;
+                    gap: 16px;
+                    font-size: 1rem;
+                }
+            }
+
+            &-left {
+                @include flexbox(flex-start, start);
+                flex-direction: column;
+                color: #FFF;
+                gap: 27px;
+
+                img {
+                    width: clamp(300px, 100%, 720px);
+                    border-radius: 20px;
+                    object-fit: contain;
+                }
+
+                &-title {
+                    font-size: 1rem;
+                    color: #FBD784;
+                }
+
+                h6 {
+                    font-size: 64px;
+                }
+
+                p {
+                    font-size: 16px;
+                }
+
+                span {
+                    @include flexbox(center, start);
+                    color: #FBD784;
+                    gap: 16px;
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+}
