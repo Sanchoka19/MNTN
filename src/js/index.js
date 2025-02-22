@@ -107,3 +107,17 @@ gsap.from(".num3", {
         toggleActions: "restart none none none"
     }
 })
+
+let footerEl = gsap.utils.toArray(".footer-li-animation");
+let footerCon = document.querySelector(".footer-con");
+
+gsap.from(footerEl, {
+    duration: 1,
+    opacity: 0,
+    stagger: 0.3,
+    x: 400,
+    scrollTrigger: {
+        trigger: footerCon,
+        toggleActions: "restart none none none"
+    }
+})

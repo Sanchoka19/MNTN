@@ -195,10 +195,14 @@ $myFont: pacaembu-medium;
                         }
 
                         li {
-                            cursor: pointer;
+                            a {
+                                color: $mainFontColor;
+                                cursor: pointer;
+                                transition: .3s ease;
 
-                            &:hover {
-                                color: #FBD784
+                                &:hover {
+                                    color: #FBD784
+                                }
                             }
                         }
                     }
@@ -266,7 +270,7 @@ $myFont: pacaembu-medium;
                 transform: translateX(-50%);
 
                 @media only screen and (max-width: 1920px) {
-                    top: 420px;
+                    top: 430px;
 
                 }
 
