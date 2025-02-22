@@ -22,24 +22,29 @@ $myFont: pacaembu-medium;
 .linear-layer {
     width: 100vw;
     height: 50vh;
-    background: linear-gradient(#0b1d2600, #0b1d2690, #0b1d260e);
+    background: linear-gradient(rgba(11, 29, 38, 0), rgb(11, 29, 38), rgb(11, 29, 38), rgb(11, 29, 38));
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    top: 700px;
-    z-index: 1001;
+    top: 1000px;
+    z-index: 999;
 }
 
 main {
     font-family: $myFont;
     width: 100vw;
     position: absolute;
-    top: 900px;
+    top: 1400px;
     background-color: #0B1D26;
+    overflow: hidden;
     z-index: 1000;
 
 
     @include flexbox(stretch, center);
+
+    @media only screen and (max-width: 1900px) {
+        top: 943px;
+    }
 
     @media only screen and (max-width: 1080px) {
         top: 600px;
@@ -50,13 +55,12 @@ main {
     }
 
     .main-container {
-        @include gridBox(minmax(800px, 1462px), repeat(3, 1fr));
+        @include gridBox(minmax(800px, 1462px), repeat(4, 1fr));
         gap: 200px;
         padding: 150px 40px;
 
         &-item {
             display: grid;
-            grid-auto-rows: 1fr;
             grid-template-columns: minmax(500px, 532px) minmax(500px, 566px);
             position: relative;
             gap: 114px;
@@ -150,6 +154,66 @@ main {
                     color: #FBD784;
                     gap: 16px;
                     font-size: 1rem;
+                }
+            }
+
+            &-footer {
+                @include flexbox(center, start);
+                border: 2px solid red;
+                flex-direction: column;
+                color: #FFF;
+                gap: 0;
+
+                &-left {
+                    @include flexbox(flex-start, space-between);
+                    flex-direction: column;
+                    color: #ffffff5c;
+                    gap: 122px;
+
+                    &-company-name {
+                        @include flexbox(flex-start, space-between);
+                        flex-direction: column;
+                        gap: 24px;
+
+                        p {
+                            width: clamp(200px, 100%, 303px);
+                            font-weight: 1000;
+                            color: $mainFontColor;
+                        }
+                    }
+                }
+
+                &-right {
+                    @include flexbox(flex-start, space-between);
+
+                    &-list {
+                        @include flexbox(flex-start, start);
+                        flex-direction: column;
+                        gap: 24px;
+
+                        h6 {
+                            color: #FBD784;
+                            font-size: 24px;
+                        }
+
+                        ul {
+                            @include flexbox(stretch, start);
+                            flex-direction: column;
+                            gap: 18px;
+
+                            li {
+
+                                a {
+                                    color: $mainFontColor;
+                                    transition: .3 ease;
+
+                                    &:hover {
+                                        color: #FBD784;
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
